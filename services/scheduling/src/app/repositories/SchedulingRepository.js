@@ -16,9 +16,12 @@ export default new class SchedulingRepository {
         });
     }
 
-    async findByProfessionalCpf(professionalCpf) {
+    async findByProfessionalCpf(professionalCpf, date) {
         return await Scheduling.findAll({
-            where: { professionalCpf: professionalCpf },
+            where: { 
+                professionalCpf: professionalCpf,
+                date: date
+             },
             raw: true
         });
     }
@@ -33,6 +36,14 @@ export default new class SchedulingRepository {
             userCpf: scheduling.userCpf,
             ubsCnpj: scheduling.ubsCnpj,
             date: scheduling.date,
+            status: scheduling.status
+        }, { 
+            where: { id: scheduling.id } 
+        });
+    }
+
+    async updateStatus(scheduling) {
+        return await Scheduling.update({
             status: scheduling.status
         }, { 
             where: { id: scheduling.id } 

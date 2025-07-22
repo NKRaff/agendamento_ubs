@@ -29,7 +29,7 @@ export default new class ProfessionalsController {
         }
     }
 
-    async findProfessionalByCpf(req, res) {
+    async findProfessionalByCpf(req, res) {       
         try {
             const professional = await ProfessionalsService.findByCpf(req.body)
             return res.status(200).json(professional)

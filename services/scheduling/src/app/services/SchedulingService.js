@@ -30,14 +30,15 @@ export default new class SchedulingService {
         professionalCpf = cpf.format(professionalCpf);
 
         // Fetch all schedulings
-        const schedulings = await SchedulingRepository.findByProfessionalCpf(professionalCpf);
+        const date = new Date().toISOString().split('T')[0]
+        const schedulings = await SchedulingRepository.findByProfessionalCpf(professionalCpf, date);        
 
         // Check if any scheduling exists for the provided CPF
         if (!schedulings)
             throw new Error("Nenhum agendamento encontrado para o CPF fornecido");
         
         // Return the list of schedulings
-        return await SchedulingRepository.findByProfessionalCpf(professionalCpf);
+        return await SchedulingRepository.findByProfessionalCpf(professionalCpf, date);
     }
 
     async create(scheduling) {
@@ -65,5 +66,15 @@ export default new class SchedulingService {
 
     async delete(id) {
         return await SchedulingRepository.delete(id);
+    }
+
+    async confirmSchedule(scheduling) {
+        scheduling.status = "Confirmado"
+        return await SchedulingRepository.updateStatus(scheduling)
+    }
+
+    async cancelSchedule(scheduling) {
+        scheduling.status = "Cancelado"
+        return await SchedulingRepository.updateStatus(scheduling)
     }
 }

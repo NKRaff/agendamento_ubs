@@ -25,7 +25,7 @@ export default new class ProfessionalGateway {
     }
 
     async findProfessionalByCpf(data, token) {
-        const axios = createAxiosInstance(token)
+        const axios = createAxiosInstance(token)        
         const response = await axios.post(`${process.env.PROFESSIONALS_SERVICE_URL}/professionals/findByProfessional`, data)
         return response.data
     }
@@ -52,6 +52,12 @@ export default new class ProfessionalGateway {
     async findByIdAvailableTimes(data, token) {
         const axios = createAxiosInstance(token)
         const response = await axios.post(`${process.env.PROFESSIONALS_SERVICE_URL}/professionals/available-times/id`, data)
+        return response.data
+    }
+    
+    async findByCpfAvailableTimes(data, token) {
+        const axios = createAxiosInstance(token)
+        const response = await axios.post(`${process.env.PROFESSIONALS_SERVICE_URL}/professionals/available-times/cpf`, data)
         return response.data
     }
 

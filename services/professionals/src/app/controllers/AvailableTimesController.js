@@ -51,7 +51,7 @@ export default new class AvailableTimesController {
 
     async findByProfessionalCpf(req, res) {
         try {
-            const availableTimes = await AvailableTimesService.findByProfessionalCpf(req.body.cpf);
+            const availableTimes = await AvailableTimesService.findByProfessionalCpf(req.body.cpf);            
             return res.status(200).json(availableTimes);
         } catch (error) {
             return res.status(500).json({ error: error.message });

@@ -1,6 +1,6 @@
 export default function authorizeRoles(...allowedRoles) {
     return (req, res, next) => {
-        const userRole = req.user?.rule
+        const userRole = req.user?.role
         
         if (!userRole) {
             return res.status(403).json({ error: 'Regra de acesso não encontrada' })

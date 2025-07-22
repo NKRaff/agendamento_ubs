@@ -40,7 +40,7 @@ export default new class SchedulingController {
             const professionalCpf = req.body.professionalCpf;
             const schedulings = await SchedulingService.findByProfessionalCpf(professionalCpf);
             if (schedulings.length === 0) {
-                return res.status(204).json(schedulings);
+                return res.status(200).json(schedulings);
             }
             return res.status(200).json(schedulings);
         } catch (error) {
@@ -72,6 +72,24 @@ export default new class SchedulingController {
             return res.status(204).send();
         } catch (error) {
             return res.status(500).json({ error: error.message });
+        }
+    }
+
+    async confirmSchadule(req, res) {
+        try {
+            const updatedScheduling = await SchedulingService.confirmSchedule(req.body);
+            return res.status(200).json(updatedScheduling);
+        } catch (error) {
+            return res.status(400).json({ error: error.message });
+        }
+    }
+
+    async cancelSchadule(req, res) {
+        try {
+            const updatedScheduling = await SchedulingService.cancelSchedule(req.body);
+            return res.status(200).json(updatedScheduling);
+        } catch (error) {
+            return res.status(400).json({ error: error.message });
         }
     }
 }

@@ -16,8 +16,6 @@ export default new class AuthController {
 
     async createAuth(req, res) {
         try {
-            console.log('chegou ao controller do gateway');
-            
             const response = await axios.post(`${process.env.AUTH_SERVICE_URL}/create`, req.body)
             console.log('passou do controller do gateway');
             return res.send(response.data)

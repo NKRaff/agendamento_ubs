@@ -8,7 +8,7 @@ export default async () => {
             professionalCpf: cpf.generate(),
             userCpf: cpf.generate(),
             ubsCnpj: cnpj.generate(),
-            date: "2025-07-24"
+            date: "2025-07-22"
         });
     } catch (error) {
         console.error("Erro ao criar agendamento:", error.message);

@@ -31,7 +31,7 @@ export default new class UsersGateway {
     
     async findUserByCpf(data, token) {
         const axios = createAxiosInstance(token)
-        const response = await axios.put(`${process.env.USERS_SERVICE_URL}/users/findByCpf`, data)
+        const response = await axios.post(`${process.env.USERS_SERVICE_URL}/users/findByCpf`, data)
         return response.data
     }
 

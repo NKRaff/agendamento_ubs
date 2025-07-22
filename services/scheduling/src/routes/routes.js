@@ -24,6 +24,8 @@ router.post('/scheduling/professional',
     authorizeRoles('Admin', 'Professional'),
     SchedulingController.findByProfessionalCpf
 );
+router.patch('/scheduling/id/confirm', authenticateToken, SchedulingController.confirmSchadule)
+router.patch('/scheduling/id/cancel', authenticateToken, SchedulingController.cancelSchadule)
 
 router.use(errorHandler);
 

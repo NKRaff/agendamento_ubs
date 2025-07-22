@@ -1,5 +1,6 @@
-import ProfessionalGateway from '../gateways/ProfessionalGateway.js'
+import SchedulingGateway from '../gateways/SchedulingGateway.js'
 import AuthGateway from '../gateways/AuthGateway.js'
+import UsersGateway from '../gateways/UsersGateway.js'
 
 export default new class ProfessionalService {
 
@@ -41,6 +42,36 @@ export default new class ProfessionalService {
         }
 
         return tokenResponse
+    }
+
+    async dailySchedule(data, token) {
+        
+        const { professionalCpf } = data
+
+        //let schedule
+        try {
+            const schedules = await SchedulingGateway.findSchedulingByProfessionalCpf({ professionalCpf }, token)
+            
+            const results = await Promise.all(schedules.map(async (schedule) => {
+                const cpf = schedule.userCpf
+                
+                const user = await UsersGateway.findUserByCpf({ cpf }, token)
+
+                return {
+                    date: schedule.date,
+                    status: schedule.status,
+                    name: user.name,
+                    email: user.email,
+                    birthday: user.birthday
+                }
+            }))
+
+            return results
+
+        } catch (err) {
+            throw new Error('Erro ao montar lista de agendamentos com usuários: ' + err.message)
+        }
+
     }
 
 }

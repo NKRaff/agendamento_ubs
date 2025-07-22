@@ -11,6 +11,7 @@ const routes = Router()
 
 routes.get('/professionals/available-times', authenticateToken, AvailableTimesController.findAll);
 routes.post('/professionals/available-times/id', authenticateToken, AvailableTimesController.findById);
+routes.post('/professionals/available-times/cpf', authenticateToken, authenticateCpf, AvailableTimesController.findByProfessionalCpf);
 routes.post('/professionals/available-times', authenticateToken, authorizeRoles('Admin', 'Professional'), authenticateAvailableTimesFildsValidate, authenticateCpf, AvailableTimesController.create);
 routes.put('/professionals/available-times', authenticateToken, authorizeRoles('Admin', 'Professional'), authenticateAvailableTimesFildsValidate, AvailableTimesController.update);
 

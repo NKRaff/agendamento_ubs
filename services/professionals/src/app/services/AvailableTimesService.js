@@ -35,8 +35,6 @@ export default new class AvailableTimesService {
     }
 
     async findByProfessionalCpf(cpf) {
-        return await AvailableTimesRepository.findAll({
-            where: { professionalCpf: cpf }
-        });
+        return await AvailableTimesRepository.findByCpf(cpf);
     }
 }
