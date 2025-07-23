@@ -1,0 +1,1354 @@
+type: collection.insomnia.rest/5.0
+name: Agendamento UBS
+meta:
+  id: wrk_eadc983ca5384f918bbefd6e84274898
+  created: 1753290201787
+  modified: 1753290363855
+  description: ""
+collection:
+  - name: Gateway 2
+    meta:
+      id: fld_a1bade8e2e6848fd86eda74a773728d9
+      created: 1753129575935
+      modified: 1753290640969
+      sortKey: -1753129565335
+      description: ""
+    children:
+      - name: AuthService
+        meta:
+          id: fld_0e6decc078f544fa9286efef8c76945d
+          created: 1753133817660
+          modified: 1753140241015
+          sortKey: -1753129582801
+          description: ""
+        children:
+          - url: localhost:3000/auth/login
+            name: Login
+            meta:
+              id: req_d88f3f50f14d4c939a22d504eaa8660a
+              created: 1753132212883
+              modified: 1753191118882
+              isPrivate: false
+              description: ""
+              sortKey: -1753133849983
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "20808022083",
+                	"password": "1234"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/auth/create
+            name: Create auth
+            meta:
+              id: req_0c2ee30f0f3049ac84b89a645d4a90e1
+              created: 1753133846082
+              modified: 1753208262747
+              isPrivate: false
+              description: ""
+              sortKey: -1753133850083
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "50137919018",
+                	"password": "1234",
+                	"rule": "Paciente"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: User
+        meta:
+          id: fld_5939f5b739b44af4bd849fbc46cde3ae
+          created: 1753164024549
+          modified: 1753164024549
+          sortKey: -1753164024549
+          description: ""
+        children:
+          - url: localhost:3000/users/register
+            name: Register
+            meta:
+              id: req_feef586ea93f43d7a6294b7295dff7c5
+              created: 1753164029402
+              modified: 1753164744135
+              isPrivate: false
+              description: ""
+              sortKey: -1753164029402
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "36604083012",
+                	"name": "Fulano de Tal",
+                	"email": "Fulano@email.com",
+                	"birthDate": "2000-01-01",
+                	"password": "123"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/users/schedule
+            name: Schedulis
+            meta:
+              id: req_a089837e2edc47c68de2ca13e30ac4b8
+              created: 1753194026795
+              modified: 1753199268813
+              isPrivate: false
+              description: ""
+              sortKey: -1753194026795
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"userCpf": "366.040.830-12"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              disabled: false
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5OTI1MiwiZXhwIjoxNzUzMjAyODUyfQ.bM65OJgaxFRt6s9LBrXtSu_ZuJ1d-VQpqgiCL8MN1tw
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/users/schedule/1/confirm
+            name: Confirm schedulis
+            meta:
+              id: req_159dfe7a68b8413fa916d0d1dfda0e9d
+              created: 1753206718805
+              modified: 1753207137474
+              isPrivate: false
+              description: ""
+              sortKey: -1753206718805
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzIwNjY3OSwiZXhwIjoxNzUzMjEwMjc5fQ.cohzuVf-Wt5pZu5nyaityLJsRLI76hAdG1QWuCrMvYM
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/users/schedule/2/cancel
+            name: Cancel schedulis
+            meta:
+              id: req_51b8353f443248b69107bfd9a0b72cc3
+              created: 1753207055585
+              modified: 1753207327323
+              isPrivate: false
+              description: ""
+              sortKey: -1753200372800
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzIwNjY3OSwiZXhwIjoxNzUzMjEwMjc5fQ.cohzuVf-Wt5pZu5nyaityLJsRLI76hAdG1QWuCrMvYM
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Professional
+        meta:
+          id: fld_c1839dc2264d4f27b431c9889b26f862
+          created: 1753167528451
+          modified: 1753167528451
+          sortKey: -1753167528451
+          description: ""
+        children:
+          - url: localhost:3000/professional/register
+            name: Create Professional
+            meta:
+              id: req_206731eaadbe43529fc75403067eb1f4
+              created: 1753160776182
+              modified: 1753197394072
+              isPrivate: false
+              description: ""
+              sortKey: -1753167535002
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "345.304.610-25",
+                	"name": "Rafael",
+                	"email": "rafael@email.com",
+                	"specialty": "Dev",
+                	"ubs": "22.286.046/0001-51",
+                	"rule": "Profissional",
+                	"password": "12345",
+                	"date": {
+                    "week": ["Segunda", "Terça"]
+                  },
+                	"startTime": "08:00",
+                	"endTime": "16:00"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIzMjAuMjU2Ljg3MC0xMCIsInJvbGUiOiJQcm9maXNzaW9uYWwiLCJpYXQiOjE3NTMxNjE5NDYsImV4cCI6MTc1MzE2NTU0Nn0.9GYZ3iJu-Jg_4QHrlZwVK4STYUYOtz2DABR4ph3laiI
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/professional/schedule
+            name: Daily schedule
+            meta:
+              id: req_e183781bc4df471e9c6c0eb0a9be212e
+              created: 1753167541801
+              modified: 1753192549673
+              isPrivate: false
+              description: ""
+              sortKey: -1753167541801
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"professionalCpf": "34530461025"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5MTEyNCwiZXhwIjoxNzUzMTk0NzI0fQ.5l_4BlXAugeLuEjeq4nxl8gKlHW5i3iBb9p5Rw5ZBrY
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - url: localhost:3000/gateway/test
+        name: Teste de rota
+        meta:
+          id: req_2f38a0e4fc9e4b2fb8ffc6ea35f247df
+          created: 1753129582701
+          modified: 1753160891227
+          isPrivate: false
+          description: ""
+          sortKey: -1753129582701
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Services
+    meta:
+      id: fld_e69fd581d1b04e4cbba7d96f4497f684
+      created: 1753132190136
+      modified: 1753290667171
+      sortKey: -1753290633714
+      description: ""
+    children:
+      - name: Professionals
+        meta:
+          id: fld_d6139d927f8146e7825ca55556cae981
+          created: 1752817703938
+          modified: 1753149092712
+          sortKey: -1753132210252.375
+          description: ""
+        children:
+          - name: Professionals
+            meta:
+              id: fld_9d15b5af46b44121b0364c429acd275d
+              created: 1753145357888
+              modified: 1753145963726
+              sortKey: -1753145357889
+              description: ""
+            children:
+              - url: localhost:3004/professionals
+                name: Create professional
+                meta:
+                  id: req_f6e02ab5b5834b8b92a2a88c30e3097f
+                  created: 1752817749828
+                  modified: 1753199100043
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753145367190
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"cpf": "345.304.610-25",
+                    	"name": "Dr. Ednaldo Pereira",
+                    	"email": "ed.pereira.dr@outlook.com",
+                    	"specialty": "Sla",
+                    	"ubs": "UBS Leste"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5ODg3MCwiZXhwIjoxNzUzMjAyNDcwfQ.0rtpugHHqQ7-mIFwjiZ6puN9sSMRMMbiHVp0gxRA2cw
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals
+                name: Update professional
+                meta:
+                  id: req_f5dbe2e285994853881b5f8413602059
+                  created: 1752818776358
+                  modified: 1753145607199
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753145367290
+                method: PUT
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"cpf": "31100514007",
+                    	"name": "Dr. Jailson Mendes",
+                    	"email": "dr.mendes@outlook.com",
+                    	"specialty": "Delicia",
+                    	"ubs": "UBS Norte"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0NTMzNywiZXhwIjoxNzUzMTQ4OTM3fQ.wJ18M5qswDZcWe0TOTZkMAgRKo1bOtvU7GVaHJPMtNo
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals
+                name: Delete professional
+                meta:
+                  id: req_d6cab42d67d6412f94944a90767b54ba
+                  created: 1752818968272
+                  modified: 1753145647337
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753145367240
+                method: DELETE
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"cpf": "31100514007"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0NTMzNywiZXhwIjoxNzUzMTQ4OTM3fQ.wJ18M5qswDZcWe0TOTZkMAgRKo1bOtvU7GVaHJPMtNo
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals
+                name: All professional
+                meta:
+                  id: req_76e3007962d642d08fab12b665ffaf68
+                  created: 1753145650112
+                  modified: 1753199045030
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753145650112
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5ODg3MCwiZXhwIjoxNzUzMjAyNDcwfQ.0rtpugHHqQ7-mIFwjiZ6puN9sSMRMMbiHVp0gxRA2cw
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals/findByProfessional
+                name: Find professional by cpf
+                meta:
+                  id: req_96838ab9346b492c84cb0884f8b8eee9
+                  created: 1753146034334
+                  modified: 1753199116728
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753146034334
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"cpf": "345.304.610-25"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5ODg3MCwiZXhwIjoxNzUzMjAyNDcwfQ.0rtpugHHqQ7-mIFwjiZ6puN9sSMRMMbiHVp0gxRA2cw
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+            scripts:
+              afterResponse: ""
+              preRequest: ""
+          - name: Available Times
+            meta:
+              id: fld_91869e7345e149329df2f10b1907a456
+              created: 1753145382357
+              modified: 1753145382357
+              sortKey: -1753145382357
+              description: ""
+            children:
+              - url: localhost:3004/professionals/available-times
+                name: Create Professioanal Available Times
+                meta:
+                  id: req_9fcb2c7d6fba47248af2d5c4866a41aa
+                  created: 1752942621966
+                  modified: 1753199188129
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753145386397
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"professionalCpf": "345.304.610-25",
+                    	"date": {
+                        "week": ["Sabado", "Domingo"]
+                      },
+                    	"startTime": "19:00",
+                    	"endTime": "22:00"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5ODg3MCwiZXhwIjoxNzUzMjAyNDcwfQ.0rtpugHHqQ7-mIFwjiZ6puN9sSMRMMbiHVp0gxRA2cw
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals/available-times
+                name: Find all available times
+                meta:
+                  id: req_c80b7878d7744102ad025ca148a225f3
+                  created: 1753145538263
+                  modified: 1753198878235
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753145538263
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5ODg3MCwiZXhwIjoxNzUzMjAyNDcwfQ.0rtpugHHqQ7-mIFwjiZ6puN9sSMRMMbiHVp0gxRA2cw
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals/available-times
+                name: Update professional available times
+                meta:
+                  id: req_a404505d65124131abf2b7ff790cade3
+                  created: 1753147059947
+                  modified: 1753148146090
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753147059947
+                method: PUT
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"professionalCpf": "97264435040",
+                    	"date": {
+                        "week": ["Quinta", "Sabado"]
+                      },
+                    	"startTime": "22:00",
+                    	"endTime": "5:00"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0NTMzNywiZXhwIjoxNzUzMTQ4OTM3fQ.wJ18M5qswDZcWe0TOTZkMAgRKo1bOtvU7GVaHJPMtNo
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: localhost:3004/professionals/available-times/id
+                name: New Request
+                meta:
+                  id: req_2bf65c16ae4942039096c7ffa6777deb
+                  created: 1753148204228
+                  modified: 1753148248837
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1753148204228
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"id": "1"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.3.0
+                authentication:
+                  type: bearer
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0NTMzNywiZXhwIjoxNzUzMTQ4OTM3fQ.wJ18M5qswDZcWe0TOTZkMAgRKo1bOtvU7GVaHJPMtNo
+                  prefix: token
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+            scripts:
+              afterResponse: ""
+              preRequest: ""
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Users
+        meta:
+          id: fld_27fdc3c585a04e6aa8816e071092a9e4
+          created: 1752867490855
+          modified: 1753142662904
+          sortKey: -1753132210268
+          description: ""
+        children:
+          - url: localhost:3002/users
+            name: Create user
+            meta:
+              id: req_4fa487dbcce3456f94ff2228d1887811
+              created: 1752867493468
+              modified: 1752868875667
+              isPrivate: false
+              description: ""
+              sortKey: -1752867493468
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "52186368005",
+                	"name": "Ednaldo Pereira",
+                	"email": "EdnaldoPereira@hotmail.com",
+                	"birthDate": "1990-01-01"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3002/users
+            name: Update User
+            meta:
+              id: req_b72af67580534cb78cbe4f0024d3ba76
+              created: 1752868909510
+              modified: 1753140495786
+              isPrivate: false
+              description: ""
+              sortKey: -1752868909510
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "52186368005",
+                	"name": "edvaldo pericleiton rasta",
+                	"email": "debochadorlegal@hotmail.com",
+                	"birthDate": "2000-12-30"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJ1bGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0MDQ3MCwiZXhwIjoxNzUzMTQ0MDcwfQ.tgf5ar8tR-djgt5IrYrL-9xieMqVfXT9UxdA8Ik2wvE
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3002/users
+            name: Delete User
+            meta:
+              id: req_dcec1fee75b74282be41a5359b7e286c
+              created: 1752869059171
+              modified: 1753141212946
+              isPrivate: false
+              description: ""
+              sortKey: -1752869059171
+            method: DELETE
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "521.863.680-05"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJ1bGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0MDQ3MCwiZXhwIjoxNzUzMTQ0MDcwfQ.tgf5ar8tR-djgt5IrYrL-9xieMqVfXT9UxdA8Ik2wvE
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3002/users
+            name: All Users
+            meta:
+              id: req_e5993a359eee4c17b746331db8518966
+              created: 1752869327023
+              modified: 1753193994956
+              isPrivate: false
+              description: ""
+              sortKey: -1752869327023
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5MTEyNCwiZXhwIjoxNzUzMTk0NzI0fQ.5l_4BlXAugeLuEjeq4nxl8gKlHW5i3iBb9p5Rw5ZBrY
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3002/users/findByCpf
+            name: User by CPF
+            meta:
+              id: req_47b42da4a19c4c76b3e7b8054ec0fff9
+              created: 1752869400226
+              modified: 1753141378665
+              isPrivate: false
+              description: ""
+              sortKey: -1752869400226
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "870.800.360-20"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJ1bGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0MDQ3MCwiZXhwIjoxNzUzMTQ0MDcwfQ.tgf5ar8tR-djgt5IrYrL-9xieMqVfXT9UxdA8Ik2wvE
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Ubs
+        meta:
+          id: fld_7fc5b17a9a134cd1998616f4ee45e224
+          created: 1752932250267
+          modified: 1753149090968
+          sortKey: -1753132210249.25
+          description: ""
+        children:
+          - url: localhost:3005/ubs
+            name: Create Ubs
+            meta:
+              id: req_23c4c6576fa749b1bb5b5386ecab83ce
+              created: 1752932252960
+              modified: 1753149237960
+              isPrivate: false
+              description: ""
+              sortKey: -1752932252960
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cnpj": "22286046000151",
+                	"name": "UBS Norte",
+                	"street": "Rua do Norte",
+                	"number": "34",
+                	"neighborhood": "Norte",
+                	"city": "Garanhuns",
+                	"state": "PE",
+                	"zipCode": "11000-000"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0OTIyNCwiZXhwIjoxNzUzMTUyODI0fQ.znwteA4igM8geQiwKRsPuUl3fKiVOolhBpCpMn0gSpg
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3005/ubs
+            name: All Ubs
+            meta:
+              id: req_d62909d0103d45129a516978356e2235
+              created: 1752933500448
+              modified: 1753149283758
+              isPrivate: false
+              description: ""
+              sortKey: -1752933500448
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0OTIyNCwiZXhwIjoxNzUzMTUyODI0fQ.znwteA4igM8geQiwKRsPuUl3fKiVOolhBpCpMn0gSpg
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3005/ubs/cnpj
+            name: Find UBS By CNPJ
+            meta:
+              id: req_391232915e654f66823d64161eb2d0a9
+              created: 1752933588124
+              modified: 1753161050579
+              isPrivate: false
+              description: ""
+              sortKey: -1752933588124
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cnpj": "22.286.046/0001-51"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE2MDg3MywiZXhwIjoxNzUzMTY0NDczfQ.0TyDr1cBO4PSJtUpAvVsUDhkzvDodyG1W0utNBXlLUA
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Scheduling
+        meta:
+          id: fld_886e9850c21747dea71be90f371999b6
+          created: 1752973547946
+          modified: 1753145255879
+          sortKey: -1753132210255.5
+          description: ""
+        children:
+          - url: localhost:3003/scheduling
+            name: Create Scheduling
+            meta:
+              id: req_278d4ac5cf45421c9cbb6a0b0a02a991
+              created: 1752973552243
+              modified: 1753192535125
+              isPrivate: false
+              description: ""
+              sortKey: -1752973552243
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"professionalCpf": "34530461025",
+                	"userCpf": "366.040.830-12",
+                	"ubsCnpj": "14990702000174",
+                	"date": "2025-07-22"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5MTEyNCwiZXhwIjoxNzUzMTk0NzI0fQ.5l_4BlXAugeLuEjeq4nxl8gKlHW5i3iBb9p5Rw5ZBrY
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3003/scheduling
+            name: All Scheduling
+            meta:
+              id: req_4eec84344de14b6caa2c1af0f797cfcd
+              created: 1752974839953
+              modified: 1753206707354
+              isPrivate: false
+              description: ""
+              sortKey: -1752974839953
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzIwNjY3OSwiZXhwIjoxNzUzMjEwMjc5fQ.cohzuVf-Wt5pZu5nyaityLJsRLI76hAdG1QWuCrMvYM
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3003/scheduling/5
+            name: Find One Scheduling
+            meta:
+              id: req_6fa3b9f93d4e43238635883beaf1cb83
+              created: 1752974881832
+              modified: 1753143276338
+              isPrivate: false
+              description: ""
+              sortKey: -1752974196098
+            method: POST
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJ1bGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0MDQ3MCwiZXhwIjoxNzUzMTQ0MDcwfQ.tgf5ar8tR-djgt5IrYrL-9xieMqVfXT9UxdA8Ik2wvE
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3003/scheduling/user/
+            name: Find By User Cpf
+            meta:
+              id: req_c2df7a4c372c4863ae23ffe8b71f1bf0
+              created: 1753021687377
+              modified: 1753197149835
+              isPrivate: false
+              description: ""
+              sortKey: -1753021687377
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"userCpf": "366.040.830-12"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5NzExMCwiZXhwIjoxNzUzMjAwNzEwfQ.FdZWj5ihwNCWiKTNnze1ajry1zSqeN-JYLH1X7xfNiY
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3003/scheduling/professional
+            name: Find By Professional Cpf
+            meta:
+              id: req_9a7cec1fefd1402792b0237900529b10
+              created: 1753023469871
+              modified: 1753191612126
+              isPrivate: false
+              description: ""
+              sortKey: -1753023469871
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"professionalCpf": "33301126898"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE5MTEyNCwiZXhwIjoxNzUzMTk0NzI0fQ.5l_4BlXAugeLuEjeq4nxl8gKlHW5i3iBb9p5Rw5ZBrY
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Authentication
+        meta:
+          id: fld_1f7e22d40b664229a528efd513c6b997
+          created: 1753132210018
+          modified: 1753142660567
+          sortKey: -1753132210318
+          description: ""
+        children:
+          - url: localhost:3001/create
+            name: Create auth
+            meta:
+              id: req_6da98b73a3a5463fb95237bb208104a9
+              created: 1753132859462
+              modified: 1753132940226
+              isPrivate: false
+              description: ""
+              sortKey: -1753132859462
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "73710289025",
+                	"password": "1234",
+                	"rule": "Paciente"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3001/login
+            name: Login
+            meta:
+              id: req_62baaef76d6b4137874318f5c30ac68d
+              created: 1753133854640
+              modified: 1753145728498
+              isPrivate: false
+              description: ""
+              sortKey: -1753130897792
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "20808022083",
+                	"password": "1234"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.3.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOiIyMDguMDgwLjIyMC04MyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1MzE0NTMzNywiZXhwIjoxNzUzMTQ4OTM3fQ.wJ18M5qswDZcWe0TOTZkMAgRKo1bOtvU7GVaHJPMtNo
+              prefix: token
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Gateway
+    meta:
+      id: fld_dfd9311c183b4ac6900e721907c15381
+      created: 1753290633614
+      modified: 1753290633614
+      sortKey: -1753290633614
+      description: ""
+    children:
+      - name: Auth
+        meta:
+          id: fld_8caf6cbd42d94096a5d8fc7a416f8c44
+          created: 1753290650058
+          modified: 1753290652828
+          sortKey: -1753290652779
+          description: ""
+        children:
+          - url: "{{ _.baseURL }}:{{ _.gatewayPORT }}/gateway/test"
+            name: New Request
+            meta:
+              id: req_d634307e7139418d9906ba6fa7015490
+              created: 1753291174682
+              modified: 1753291318403
+              isPrivate: false
+              description: ""
+              sortKey: -1753291174682
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.3.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_50ab3cfba3874f93b6c74d5d8c099c48
+    created: 1752705282931
+    modified: 1752818210764
+environments:
+  name: Base Environment
+  meta:
+    id: env_8b38288796104c51a813ded0495343a0
+    created: 1752705282705
+    modified: 1752705282705
+    isPrivate: false
+  subEnvironments:
+    - name: Agendamento UBS
+      meta:
+        id: env_b30c03ac4d32425dae5a3e8c358c096e
+        created: 1753290968649
+        modified: 1753291302094
+        isPrivate: false
+        sortKey: 1753290968649
+      data:
+        baseURL: http://localhost
+        gatewayPORT: "3000"
+        token: ""
+      color: "#6220c5"
