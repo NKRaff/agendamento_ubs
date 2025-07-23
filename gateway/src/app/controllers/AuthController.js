@@ -6,7 +6,7 @@ dotenv.config()
 export default new class AuthController {
     
     async login(req, res) {
-        try {           
+        try {
             const response = await axios.post(`${process.env.AUTH_SERVICE_URL}/login`, req.body)
             return res.send(response.data)
         } catch (error) {

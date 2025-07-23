@@ -1,6 +1,7 @@
 import SchedulingGateway from '../gateways/SchedulingGateway.js'
 import AuthGateway from '../gateways/AuthGateway.js'
 import UsersGateway from '../gateways/UsersGateway.js'
+import ProfessionalGateway from '../gateways/ProfessionalGateway.js'
 
 export default new class ProfessionalService {
 
@@ -17,7 +18,7 @@ export default new class ProfessionalService {
         } catch (error) {
             throw new Error('Erro ao criar profissional: ' + err.message)
         }
-
+        
         // Criar horario para um profissional
         try {
             availableTimes = await ProfessionalGateway.createAvailableTimes({

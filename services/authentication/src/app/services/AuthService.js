@@ -22,7 +22,7 @@ export default new class AuthService {
             const token = jwt.sign(
                 {cpf: auth.cpf, role: auth.rule}, 
                 process.env.JWT_SECRET, 
-                {expiresIn: '1h'}
+                {expiresIn: '12h'}
             )
 
             const rule = auth.rule
