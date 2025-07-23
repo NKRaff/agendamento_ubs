@@ -27,7 +27,7 @@ const Scheduling = sequelize.define('Scheduling', {
         }
     },
     status: {
-        type: DataTypes.ENUM('Pendente', 'Confirmado', 'Cancelado'),
+        type: DataTypes.ENUM('Pendente', 'Confirmado', 'Cancelado', 'Concluído'),
         allowNull: false,
         defaultValue: 'Pendente'
     }

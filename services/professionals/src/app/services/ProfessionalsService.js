@@ -1,7 +1,10 @@
 import ProfessionalRepository from "../repositories/ProfessionalRepository.js"
+import { cpf } from 'cpf-cnpj-validator'
 
 export default new class ProfessionalsService {
     async createProfessional(data) {
+        data.cpf = cpf.format(data.cpf)
+
         // Check if the professional already exists
         const existingProfessional = await ProfessionalRepository.findByCpf(data.cpf)
         if (existingProfessional) {
@@ -14,6 +17,8 @@ export default new class ProfessionalsService {
     }
 
     async updateProfessional(data) {
+        data.cpf = cpf.format(data.cpf)
+
         // Check if the professional exists
         const existingProfessional = await ProfessionalRepository.findByCpf(data.professionalCpf)
         if (!existingProfessional) {
@@ -24,6 +29,8 @@ export default new class ProfessionalsService {
     }
 
     async deleteProfessional(data) {
+        data.cpf = cpf.format(data.cpf)
+
         // Check if the professional exists
         const existingProfessional = await ProfessionalRepository.findByCpf(data)
         if (!existingProfessional) {
@@ -35,6 +42,8 @@ export default new class ProfessionalsService {
     }
 
     async findByCpf(data) {
+        data.cpf = cpf.format(data.cpf)
+        
         const existingProfessional = await ProfessionalRepository.findByCpf(data.cpf)
         if (!existingProfessional) {
             throw new Error("Profissional não encontrado")

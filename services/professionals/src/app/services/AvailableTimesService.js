@@ -1,5 +1,6 @@
 import AvailableTimesRepository from "../repositories/AvailableTimesRepository.js";
 import ProfessionalRepository from "../repositories/ProfessionalRepository.js";
+import { cpf } from "cpf-cnpj-validator"
 
 export default new class AvailableTimesService {
     async findAll() {
@@ -11,6 +12,8 @@ export default new class AvailableTimesService {
     }
 
     async create(availableTime) {
+        availableTime.professionalCpf = cpf.format(availableTime.professionalCpf)
+
         // Validate if the professional exists
         const professional = await ProfessionalRepository.findByCpf(availableTime.professionalCpf);
         if (!professional) {
@@ -27,6 +30,7 @@ export default new class AvailableTimesService {
     }
 
     async update(availableTime) {
+        availableTime.professionalCpf = cpf.format(availableTime.professionalCpf)
         return await AvailableTimesRepository.update(availableTime);
     }
 
@@ -34,7 +38,8 @@ export default new class AvailableTimesService {
         return await AvailableTimesRepository.delete(id);
     }
 
-    async findByProfessionalCpf(cpf) {
+    async findByProfessionalCpf(professionalCpf) {
+        professionalCpf = cpf.format(professionalCpf)
         return await AvailableTimesRepository.findByCpf(cpf);
     }
 }

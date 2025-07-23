@@ -7,10 +7,7 @@ dotenv.config()
 
 // Inicia o banco de dados
 sequelize.sync()
-    .then(() => {
-        console.log('✔️  Banco de dados conectado!')
-        fillDB().then(() => console.log('✔️  Dados inseridos no banco!'))
-    })
+    .then(() => { fillDB() })
     .catch(error => console.error('❌  Erro ao se conectar com o banco de dados: ', error))
 
 // Inicia o servidor
