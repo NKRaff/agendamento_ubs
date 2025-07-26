@@ -1,0 +1,321 @@
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    /* Cores */
+    --primary-color: #28a745; /* Verde para destaque e botões */
+    --secondary-color: #007bff; /* Azul para links e ícones */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --text-color: #343a40; /* Cor padrão do texto */
+    --light-gray: #e9ecef; /* Cinza claro para bordas e fundos sutis */
+    --white: #ffffff; /* Branco */
+
+    /* Sombras */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    scroll-behavior: smooth; /* Para rolagem suave para as seções */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0; /* Espaçamento padrão para seções */
+}
+
+.bg-light {
+    background-color: var(--light-gray);
+}
+
+/* Header */
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow);
+    position: sticky; /* Fixa o header no topo */
+    top: 0;
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex; /* Alinha os itens do menu horizontalmente */
+    align-items: center; /* Centraliza verticalmente os itens do menu */
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    padding: 5px 0; /* Pequeno padding para o hover ser mais agradável */
+}
+
+header nav ul li a:hover {
+    color: var(--light-gray);
+}
+
+/* Estilo para o botão de Login/Cadastro */
+.btn-login {
+    background-color: var(--secondary-color); /* Usamos a cor secundária (azul) */
+    padding: 8px 15px; /* Padding para parecer um botão */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid var(--secondary-color); /* Borda para destaque */
+}
+
+.btn-login:hover {
+    background-color: #0056b3; /* Tom mais escuro de azul ao passar o mouse */
+    color: var(--white); /* Garante que a cor do texto permaneça branca */
+    transform: translateY(-1px);
+}
+
+/* Main Section (Hero) */
+main#inicio {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x800?text=Imagem+UBS') no-repeat center center/cover; /* Imagem de fundo */
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh; /* Altura mínima da seção */
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-color); /* Azul para o botão de ação */
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Um tom mais escuro de azul */
+    transform: translateY(-2px);
+}
+
+/* Agendamento Section */
+#agendamento h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.appointment-form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Um tom mais escuro de verde */
+    transform: translateY(-2px);
+}
+
+/* Outras Seções (Serviços, Sobre) */
+#servicos h2,
+#sobre h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#servicos p,
+#sobre p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    background: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+        padding-left: 0;
+        flex-wrap: wrap; /* Permite que os itens do menu quebrem a linha */
+        justify-content: center; /* Centraliza os itens quando quebram a linha */
+    }
+
+    header nav ul li {
+        margin: 5px 10px; /* Ajusta a margem para telas menores */
+    }
+
+    .btn-login {
+        margin-top: 10px; /* Adiciona margem acima do botão em telas menores */
+    }
+
+    main#inicio {
+        padding: 80px 0;
+        min-height: 60vh;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    #agendamento h2,
+    #servicos h2,
+    #sobre h2 {
+        font-size: 1.8rem;
+    }
+
+    .appointment-form {
+        padding: 20px;
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header nav ul li {
+        margin: 5px 5px; /* Margem ainda menor para telas muito pequenas */
+    }
+
+    main#inicio {
+        min-height: 50vh;
+        padding: 60px 0;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+}
