@@ -5,7 +5,7 @@ export default new class AuthController {
     async login(req, res) {
         try {
             const result = await AuthService.login(req.body)
-    
+            
             if(result.error)
                 return res.status(400).json({error: result.error})
 
