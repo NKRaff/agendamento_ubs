@@ -16,7 +16,7 @@ export default new class AuthController {
                 return res.status(500).json({ error: "Token não gerado" });
             }
 
-            return res.status(200).json({token: token})
+            return res.status(200).json(result)
         } catch (error) {
             return res.status(500).json({ error: error.message });
         }

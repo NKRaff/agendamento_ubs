@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
-        e.preventDefault()
+    document.getElementById('login-form').addEventListener('submit', async (event) => {
+        event.preventDefault()
 
         const cpf = document.getElementById('cpf').value
         const password = document.getElementById('password').value
@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 message.style.color = 'green'
                 message.textContent = `Login bem-sucedido! Token: ${data.token}`
+                localStorage.setItem('token', data.token);
+                if(data.rule === 'Admin') window.location.href = '/admin'
+                else if(data.rule === 'Profissional') window.location.href = '/profissional'
+                else if(data.rule === 'Paciente') window.location.href = '/paciente'
+                else {
+                    message.style.color = 'red'
+                    message.textContent = 'Tipo da conta não identificada'
+                }
             } else {
                 message.style.color = 'red'
                 message.textContent = data.error || 'Erro no login'
