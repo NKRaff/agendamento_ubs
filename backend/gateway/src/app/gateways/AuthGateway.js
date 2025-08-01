@@ -14,6 +14,8 @@ export default new class AuthGateway {
 
   async login(data) {
     const axios = createAxiosInstance()
+    console.log(data);
+    
     const response = await axios.post(`${process.env.AUTH_SERVICE_URL}/login`, data)
     return response.data
   }

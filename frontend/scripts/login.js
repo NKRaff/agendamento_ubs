@@ -1,42 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
     document.getElementById('login-form').addEventListener('submit', async (event) => {
         event.preventDefault()
 
         const cpf = document.getElementById('cpf').value
         const password = document.getElementById('password').value
-        const message = document.getElementById('message')
 
         try {
-            const response = await fetch('http://localhost:3000/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ cpf, password })
-            })
-
-            const data = await response.json()
-
-            if (response.ok) {
-                message.style.color = 'green'
-                message.textContent = `Login bem-sucedido! Token: ${data.token}`
-                localStorage.setItem('token', data.token);
-                if(data.rule === 'Admin') window.location.href = '/admin'
-                else if(data.rule === 'Profissional') window.location.href = '/profissional'
-                else if(data.rule === 'Paciente') window.location.href = '/paciente'
-                else {
-                    message.style.color = 'red'
-                    message.textContent = 'Tipo da conta não identificada'
-                }
-            } else {
-                message.style.color = 'red'
-                message.textContent = data.error || 'Erro no login'
-            }
+            await login(cpf, password)
         } catch (error) {
-            console.error('Erro na requisição:', error)
-            message.textContent = 'Erro de conexão com o servidor'
+            console.log('Erro ao fazer login')
         }
     })
-
 })
+
+async function login(cpf, password) {
+    const response = await fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },body: JSON.stringify({ cpf, password })
+    })
+
+    const data = await response.json()
+
+    if (response.ok) {
+        localStorage.setItem('token', data.token);
+        if(data.rule === 'Admin') window.location.href = '/admin'
+        else if(data.rule === 'Profissional') window.location.href = '/profissional'
+        else if(data.rule === 'Paciente') window.location.href = '/paciente'
+        else console.log('Tipo da conta não identificada');
+    } else
+        console.log('Erro no login');
+}

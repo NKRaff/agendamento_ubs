@@ -1,23 +1,14 @@
 import UsersService from '../services/UsersService.js'
+import UsersGateway from '../gateways/UsersGateway.js'
 
 export default new class ProfessionalController {
 
     async register(req, res) {
         try {
-            const token = req.headers.authorization 
-            const result = await UsersService.register(req.body, token)
+            const { cpf, name, email, birthDate } = req.body
+            const result = await UsersGateway.createUser({cpf, name, email, birthDate})
             res.status(201).json(result)
-        } catch (err) {
-            res.status(500).json({ error: 'Erro ao cadastrar paciente' })
-        }
-    }
-
-    async register(req, res) {
-        try {
-            const token = req.headers.authorization 
-            const result = await UsersService.register(req.body, token)
-            res.status(200).json(result)
-        } catch (err) {
+        } catch (error) {
             res.status(500).json({ error: 'Erro ao cadastrar paciente' })
         }
     }
@@ -27,7 +18,7 @@ export default new class ProfessionalController {
             const token = req.headers.authorization 
             const result = await UsersService.schedules(req.body, token)
             res.status(200).json(result)
-        } catch (err) {
+        } catch (error) {
             res.status(500).json({ error: 'Erro ao buscar agenda do paciente' })
         }
     }
@@ -37,7 +28,7 @@ export default new class ProfessionalController {
             const token = req.headers.authorization 
             const result = await UsersService.confirmSchedules(req.params, token)
             res.status(200).json(result)
-        } catch (err) {
+        } catch (error) {
             res.status(500).json({ error: 'Erro ao confirmar consulta' })
         }
     }
@@ -47,7 +38,7 @@ export default new class ProfessionalController {
             const token = req.headers.authorization 
             const result = await UsersService.cancelSchedules(req.params, token)
             res.status(200).json(result)
-        } catch (err) {
+        } catch (error) {
             res.status(500).json({ error: 'Erro ao cancelar consulta' })
         }
     }
